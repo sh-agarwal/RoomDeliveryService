@@ -14,7 +14,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    
+
     left: 50%;
     top: 50%;
     position: absolute;
@@ -53,6 +53,11 @@ h1{
     margin-bottom: 20px;
 }
 
+.loginbox button{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
 .loginbox input[type="text"], input[type="password"]
 {
     border: none;
@@ -63,20 +68,20 @@ h1{
     color: #fff;
     font-size: 16px;
 }
-.loginbox input[type="submit"]
+.loginbox button
 {
     border: none;
     outline: none;
     height: 40px;
-    
+
     background-image: url('b4.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
-    
+
     font-size: 18px;
     border-radius: 20px;
 }
-.loginbox input[type="submit"]:hover
+.loginbox button:hover
 {
     cursor: pointer;
     background: #ffc107;
@@ -93,68 +98,3 @@ h1{
 {
     color: rgb(255,0,255);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
