@@ -1,11 +1,13 @@
 <?php
-   ob_start();
+   //ob_start();
    session_start();
 ?>
 
 <?php
   include "db_connection.php";
 ?>
+
+
 
 <html>
 <head>
@@ -30,9 +32,15 @@
               if ($res = $conn->query("SELECT * FROM user WHERE username='$user'"))  {
                 $row = $res->fetch_assoc();
                 if ($res->num_rows > 0 && password_verify($pass, $row['password'])) {
-                  $_SESSION['valid'] = true;
-                  $_SESSION['timeout'] = time();
-                  $_SESSION['username'] = $user;
+                  //$_SESSION['valid'] = true;
+                  //$_SESSION['timeout'] = time();
+                  //$_SESSION['username'] = $user;
+                	setcookie('valid', true, time() + (86400 * 30), "/");
+                	setcookie('time', time(), time() + (86400 * 30), "/");
+                	setcookie('username', $user, time() + (86400 * 30), "/");
+                  //$_COOKIE['valid'] = true;
+                  //$_COOKIE['timeout'] = time();	
+                  //$_COOKIE['username'] = $user;
 
                   if($row['admin']==1){
                     header( 'Location: ./homepage/index.php' );

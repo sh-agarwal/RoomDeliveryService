@@ -1,8 +1,13 @@
 <!DOCTYPE HTML>
+<?php
+  
+   session_start();
+?>
 
 <html>
 	<head>
 		<title>RDS</title>
+		<link rel="icon" type="image/png" href="../images/icons/favicon.ico"/>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
@@ -29,19 +34,25 @@
 				<!-- Logo -->
 				<div id="logo">
 					<h1><a href="#">RDS</a></h1>
+					<h1><?php echo "Logged in as: ".$_COOKIE['username']; ?></h1>
 				</div>
 
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li class="active"><a href="index.html">Homepage</a></li>
-						<li><a href="twocolumn1.html">Order</a></li>
+						<li class="active"><a href="index.php">Home</a></li>
+						<li><a href="twocolumn1.php">Order</a></li>
 						<li><a href="twocolumn2.html">My Orders</a></li>
 						<li><a href="../index.php">Logout</a></li>
+						
 					</ul>
+					
+
 				</nav>
+				
 
 			</div>
+
 		</div>
 
 		<div id="banner">&nbsp;</div>
