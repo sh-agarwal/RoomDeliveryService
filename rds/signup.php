@@ -24,9 +24,16 @@
             <p>Contact number</p>
             <input type="text" name="" placeholder="Enter Contact number">
             <p>Department</p>
-            <input type="text" name="" placeholder="Enter Department">
+            <form>
+             <input type="radio" name="department" value="CSE" checked> CSE<br>
+            <input type="radio" name="department" value="EEE"> EEE<br>
+            <input type="radio" name="department" value="DD"> DD  
+            </form> 
             <p>Type</p>
-            <input type="text" name="" placeholder="Enter Type">
+            <form>
+             <input type="radio" name="type" value="Student" checked> Student<br>
+            <input type="radio" name="type" value="Faculty"> Faculty
+            </form> 
             <p>Password</p>
             <input type="password" name="" placeholder="Enter Password">
             <input type="submit" name="" value="Register">
