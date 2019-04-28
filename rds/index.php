@@ -37,11 +37,11 @@
                 	setcookie('time', time(), time() + (86400 * 30), "/");
                 	setcookie('username', $user, time() + (86400 * 30), "/");
                   //$_COOKIE['valid'] = true;
-                  //$_COOKIE['timeout'] = time();	
+                  //$_COOKIE['timeout'] = time();
                   //$_COOKIE['username'] = $user;
 
                   if($row['admin']==1){
-                    header( 'Location: ./homepage/index.php' );
+                    header( 'Location: ./admin_homepage/index.php' );
                   }
                   else{
                     header( 'Location: ./homepage/index.php' );
