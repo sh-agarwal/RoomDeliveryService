@@ -2,6 +2,7 @@
 <head>
 <title>RDS</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" type="image/png" href="./images/icons/favicon.ico"/>
 <body>
     
     <div class="loginbox">
