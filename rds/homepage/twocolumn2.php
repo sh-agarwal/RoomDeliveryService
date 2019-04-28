@@ -3,6 +3,7 @@
 <?php
   include "../db_connection.php";
 	session_start();
+	$_SESSION['link']="./invoice.php";
 
 ?> 
 
@@ -159,7 +160,7 @@
 
 
 									            echo "<tr>"; 
-									            echo "<strong><td><a href=".$_SESSION['link'].">".$row['id']."</a></td></strong>"; 
+									            echo "<strong><td><a href=".$_SESSION['link']."?link=".$row['id'].">".$row['id']."</a></td></strong>"; 
 									            echo "<td>".$row['date']."</td>"; 
 									            echo "<td>".$row['time']."</td>"; 
 									            echo "<td><pre>".$items_f."</pre></td>"; 
