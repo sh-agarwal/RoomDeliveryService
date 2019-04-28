@@ -69,8 +69,7 @@
             <input type="text" name="username" placeholder="Enter Username">
             <p>Password</p>
             <input type="password" name="password" placeholder="Enter Password">
-            <button type = "submit"
-               name = "login">Login</button>
+            <button type = "submit" name = "login">Login</button>
 
             <a href="./signup.php">Don't have an account? Sign up</a>
         </form>

@@ -15,7 +15,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    
+
     left: 50%;
     top: 50%;
     position: absolute;
@@ -43,7 +43,7 @@ h1{
 }
 
 .signupbox input[type="text"], input[type="password"], input[type="submit"] {
-    
+
     width: 100%;
     margin-bottom: 20px;
 }
@@ -60,20 +60,21 @@ h1{
 }
 
 
-.signupbox input[type="submit"]
+.signupbox button
 {
     border: none;
     outline: none;
     height: 40px;
-    
+
     background-image: url('b4.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
-    
+
     font-size: 18px;
     border-radius: 20px;
 }
-.signupbox input[type="submit"]:hover
+
+.signupbox button:hover
 {
     cursor: pointer;
     background: #ffc107;
@@ -90,69 +91,3 @@ h1{
 {
     color: rgb(255,0,255);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
