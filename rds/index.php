@@ -1,9 +1,7 @@
 <?php
    ob_start();
    session_start();
-?>
 
-<?php
   include "db_connection.php";
 ?>
 
@@ -40,6 +38,7 @@
                   else{
                     header( 'Location: ./homepage/index.php' );
                   }
+                  $res->free();
                 }
                 else {
                     $msg = 'Wrong username or password';

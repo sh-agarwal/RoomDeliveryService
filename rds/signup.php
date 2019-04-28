@@ -1,9 +1,7 @@
 <?php
    ob_start();
    session_start();
-?>
 
-<?php
   include "db_connection.php";
 ?>
 <html>
