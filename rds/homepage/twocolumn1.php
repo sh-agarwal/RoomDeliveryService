@@ -175,12 +175,12 @@
 						{
 							$total+=($price[$j]*$quantity[$j]);
 							$temp+=($cp[$j]*$quantity[$j]);	
-							$prep_total+=$prep_time[$j];
+							$prep_total+=($preptime[$j]*$quantity[$j]);
 							$j++;
 						}
 						$profit=$total-$temp;
 						$prep_total+=2;
-						$msg=$t;
+						//$msg=$t;
 
 						$sql = "INSERT INTO orders (`date`, `time`, username, items, quantity, price, total, profit, address, preptime, contact, status, firstname, lastname) 
 					              VALUES('$d','$t','$user_temp','$items_f','$quantity_f','$price_f',$total,$profit,'$address',$prep_total,$contact,0,'$firstname','$lastname')"; 
@@ -301,7 +301,7 @@
 						
 						<li><a href="index.php">Home</a></li>
 						<li class="active"><a href="twocolumn1.php">Order</a></li>
-						<li><a href="twocolumn2.html">My Orders</a></li>
+						<li><a href="twocolumn2.php">My Orders</a></li>
 						<li><a href="../index.php">Logout</a></li>
 						
 					</ul>
@@ -359,6 +359,8 @@
                                     <tr>  
                                          
                                          <td>Item</td>  
+                                         
+                                         <td>Price (per unit)</td>
                                          <td>Stock</td>
                                          <td>Quantity</td> 
                                     </tr>  
@@ -375,6 +377,8 @@
 									            $i++;
 									            echo "<tr>"; 
 									            echo "<td>".$row['name']."</td>"; 
+									            
+									            echo "<td>".$row['price']."</td>";
 									            echo "<td>".$row['stock']."</td>"; 
 									            echo "<td><input type=\"number\" name=\"qty".$i."\" value=\"0\" class=\"form-control name_list\" min=\"0\" max=\"".$row['stock']."\" /></td>";
 									            echo "</tr>"; 

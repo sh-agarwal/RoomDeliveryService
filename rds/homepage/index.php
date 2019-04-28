@@ -42,7 +42,7 @@
 					<ul>
 						<li class="active"><a href="index.php">Home</a></li>
 						<li><a href="twocolumn1.php">Order</a></li>
-						<li><a href="twocolumn2.html">My Orders</a></li>
+						<li><a href="twocolumn2.php">My Orders</a></li>
 						<li><a href="../index.php">Logout</a></li>
 						
 					</ul>
