@@ -35,10 +35,10 @@
                   $_SESSION['username'] = $user;
 
                   if($row['admin']==1){
-                    header( 'Location: ./test.php' );
+                    header( 'Location: ./homepage/index.php' );
                   }
                   else{
-                    header( 'Location: ./test.html' );
+                    header( 'Location: ./homepage/index.php' );
                   }
                 }
                 else {
