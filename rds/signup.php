@@ -25,8 +25,8 @@
         &&  !empty($in_last) &&  !empty($in_dep) &&  !empty($in_type) &&  !empty($in_address) &&  !empty($in_email)
         && !empty($in_contact))
         {
-          echo "checking.." . $in_user . "<br>";
-          echo "Hello World!<br>";
+          // echo "checking.." . $in_user . "<br>";
+          // echo "Hello World!<br>";
           $conn = OpenCon();
           $hash_pass = password_hash($_POST['password'], PASSWORD_DEFAULT);
           //echo $hash_pass . "<br>";

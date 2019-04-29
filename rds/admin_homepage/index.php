@@ -41,7 +41,7 @@
 				<nav id="nav">
 					<ul>
 						<li class="active"><a href="index.php">Home</a></li>
-						<li><a href="twocolumn1.php">Items</a></li>
+						<li><a href="twocolumn1.php">Purchase</a></li>
 						<li><a href="twocolumn2.php">Sales</a></li>
             <li><a href="twocolumn3.php">Queue</a></li>
 						<li><a href="../index.php">Logout</a></li>
@@ -105,7 +105,7 @@
 				</div>
 			</div>
 		</div>
-		<div id="marketing">
+		<!-- <div id="marketing">
 			<div class="container">
 				<div class="row">
 					<div class="3u">
@@ -148,7 +148,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<div id="main">
 			<div class="container">

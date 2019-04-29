@@ -18,7 +18,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-panels.min.js"></script>
@@ -28,8 +28,6 @@
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-desktop.css" />
 		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
 	</head>
 	<body>
 
@@ -49,237 +47,42 @@
 		       $mysqli = OpenCon();
 		       $j=1;
 		       $i=$_SESSION['i'];
-		       $val=false;
-		       if($i>=$j)
-		       		$val=true;
-		       $sql = "SELECT * FROM item";
-									if ($res = $mysqli->query($sql)) {
-									    if ($res->num_rows > 0) {
-
-									        while ($row = $res->fetch_array())
-									        {
-
-
-									        	if($j<=$i && $val==true)
-									        	{
-									        		if($_POST['qty'.$j]>$row['stock'])
-									            	{
-									            		$msg="<strong><font color=red size='4pt'>Quantity for item ".$j." exceeds available stock. Kindly order again.</font color></strong>";
-									            		$val=false;
-									            	}
-									        	}
-
-
-									            	$j++;
-
-									        }
-									        $res->free();
-									    }
-									    else {
-									        echo "No matching records are found.";
-									        $val=false;
-									    }
-									}
-
-		       	if($val==true)
-		       	{
-		       		$j=1;
-		       		$sql = "SELECT * FROM item";
-									if ($res = $mysqli->query($sql)) {
-									    if ($res->num_rows > 0) {
-									        $val=false;
-									        while ($row = $res->fetch_array())
-									        {
-
-
-												if($j<=$i)
-									        	{
-
-									        		$quantity[$j]=$_POST['qty'.$j];
-									        		if($quantity[$j]>0)
-									        			$val=true;
-									        		$price[$j]=$row['price'];
-									        		$cp[$j]=$row['cp'];
-									        		$preptime[$j]=$row['preptime'];
-									        		if($_POST['qty'.$j]!= null && $_POST['qty'.$j]!= "")
-									        			$_POST['qty'.$j]=$row['stock']-$_POST['qty'.$j];
-									        		else
-									        			$_POST['qty'.$j]=$row['stock'];
-									        		$names[$j]=$row['name'];
-									        	}
-
-
-									            	$j++;
-									        }
-									        $res->free();
-									    }
-									    else {
-									        echo "No matching records are found.";
-									        $val=false;
-									    }
-									}
-
-
-
-		       	}
-
-		       	$contact;
-		       	$firstname;
-		       	$lastname;
-		       	$address;
-
-		       	if($val==true)
-		       	{
-
-
-		       		//Getting user's info
-
-		       		$sql = "SELECT * FROM user WHERE username='".$_COOKIE['username']."'";
-									if ($res = $mysqli->query($sql)) {
-									    if ($res->num_rows > 0) {
-
-									        while ($row = $res->fetch_array())
-									        {
-
-									        	$firstname=$row['firstname'];
-									        	$lastname=$row['lastname'];
-									        	$address=$row['address'];
-									        	$contact=$row['contact'];
-
-
-									        }
-									        $res->free();
-									    }
-									    else {
-									        echo "No matching records are found.";
-									        $val=false;
-									    }
-									}
-
-
-					}
-
-					$temp=0;
-
-					if($val==true)		//Inserting new entry in orders table
-					{
-
-						$d=date("Y-m-d");
-						$t=date("H:i:s");
-						$items_f=serialize($names);
-						$quantity_f=serialize($quantity);
-						$price_f=serialize($price);
-						$j=1;
-						$user_temp=$_COOKIE['username'];
-						while($j<=$i)	//total price ,profit and prep_time
-						{
-							$total+=($price[$j]*$quantity[$j]);
-							$temp+=($cp[$j]*$quantity[$j]);
-							$prep_total+=($preptime[$j]*$quantity[$j]);
-							$j++;
-						}
-						$profit=$total-$temp;
-						$prep_total+=2;
-						//$msg=$t;
-
-						$sql = "INSERT INTO orders (`date`, `time`, username, items, quantity, price, total, profit, address, preptime, contact, status, firstname, lastname)
-					              VALUES('$d','$t','$user_temp','$items_f','$quantity_f','$price_f',$total,$profit,'$address',$prep_total,$contact,0,'$firstname','$lastname')";
-
-							    if ($mysqli->query($sql) ==  false)
-							    {
-							    	echo "ERROR: Could not able to execute $sql. "
-							           .$mysqli->error;
-							          $val=false;
-							    }
-
-
-						}
-
-
-
-
-
-		       	if($val==true)		//Updating items stock and status
-		       	{
-		       		$j=1;
-
-
-									        while ($j<=$i)
-									        {
-
-
-									            $sql = "UPDATE item SET stock=".$_POST['qty'.$j]." WHERE name='".$names[$j]."'";
-												if($mysqli->query($sql) == false){
-
-												    echo "ERROR: Could not able to execute $sql. "
-												                                        . $mysqli->error;
-												                                       $val=false;
-												}
-
-
-
-									            	$j++;
-									        }
-
-
-
-		       	}
-
-
-		       	if($val==true)
-		       	{
-
-		       		$j=1;
-		       		$sql = "SELECT * FROM item";
-									if ($res = $mysqli->query($sql)) {
-									    if ($res->num_rows > 0) {
-
-									        while ($row = $res->fetch_array())
-									        {
-
-
-									        	if($j<=$i && $val==true)
-									        	{
-									        		if($row['stock']<=$row['threshold'])
-									            	{	//Update status
-
-									            		$sql2 = "UPDATE item SET status=1 WHERE name='".$row['name']."'";
-														if($mysqli->query($sql2) == false){
-
-														    echo "ERROR: Could not able to execute $sql. "
-														                                        . $mysqli->error;
-														                                       $val=false;
-														}
-									            	}
-									        	}
-
-
-									            	$j++;
-
-									        }
-									        $res->free();
-									    }
-									    else {
-									        echo "No matching records are found.";
-									        $val=false;
-									    }
-									}
-
-
-
-
-		       	}
-
-		       	if($val==true)
-		       	{
-		       		$msg="<strong><font color=green bold size='4pt'>Order Successfully placed</font color></strong>";
-		       	}
-
-
-
-			$mysqli->close();
+           $k=0;
+           $sql_two = "SELECT * FROM item WHERE threshold >= stock AND name != 'coffee' AND name != 'tea'";
+
+            /*initializing name of items in purchase list*/
+             if ($res_two = $mysqli->query($sql_two)) {
+                 if ($res_two->num_rows > 0) {
+                     while ($row_two = $res_two->fetch_array())
+                     {
+                         $k++;
+                         $names[$k] = $row_two['name'];
+                     }
+                     $res_two->free();
+                 }
+                 else {
+                     echo "No matching records are found.";
+                 }
+              }
+
+			        while ($j<=$i)
+			        {
+                  $quantity[$j] = $_POST['qty'.$j];
+			            $sql = "UPDATE item SET stock=stock+'$quantity[$j]' WHERE name='".$names[$j]."'";
+                  // echo  $quantity[$j];
+                  // echo  $names[$j];
+                  $res = $mysqli->query($sql);
+						      if($res === true){
+                      $msg="<strong><font color=green bold size='4pt'>Purchase successfull</font color></strong>";
+						      }
+                  else{
+                      echo "ERROR: Could not execute $sql. " . $mysqli->error;
+                  }
+			            $j++;
+			        }
+
+			     $mysqli->close();
 		    }
-
 		?>
 
 
@@ -300,7 +103,7 @@
 					<ul>
 
 						<li><a href="index.php">Home</a></li>
-            <li class="active"><a href="twocolumn1.php">Items</a></li>
+            <li class="active"><a href="twocolumn1.php">Purchase</a></li>
 						<li><a href="twocolumn2.php">Sales</a></li>
             <li><a href="twocolumn3.php">Queue</a></li>
 						<li><a href="../index.php">Logout</a></li>
@@ -376,10 +179,12 @@
 									        while ($row = $res->fetch_array())
 									        {
 									            $i++;
+                              $names[$i] = $row['name'];
+
 									            echo "<tr>";
 									            echo "<td>".$row['name']."</td>";
 
-									            echo "<td>".$row['price']."</td>";
+									            echo "<td>".$row['cp']."</td>";
 									            echo "<td>".$row['stock']."</td>";
 									            echo "<td><input type=\"number\" name=\"qty".$i."\" value=\"0\" class=\"form-control name_list\" min=\"0\" max=\"500\" /></td>";
 									            echo "</tr>";
@@ -406,7 +211,7 @@
 			</div>
 		</div>
 
-		<div id="marketing">
+		<!-- <div id="marketing">
 			<div class="container">
 				<div class="row">
 					<div class="3u">
@@ -449,7 +254,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<div id="main">
 			<div class="container">
