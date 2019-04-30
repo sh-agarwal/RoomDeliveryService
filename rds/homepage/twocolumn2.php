@@ -121,10 +121,18 @@
 									$sql = "SELECT * FROM orders where username='".$user2."'"; 
 									if ($res = $mysqli->query($sql)) { 
 									    if ($res->num_rows > 0) { 
-									        
-									        while ($row = $res->fetch_array())  
+
+									    	$len=$res->num_rows;
+									    	$temp=1;
+									    	$row2=array();
+									    	while($row2[$temp]=$res->fetch_array()){$temp++;}
+									    	$temp--;
+									    	//echo $temp;
+									        //$row;
+									        while ($temp>0)  
 									        { 
-									           
+									           $row = $row2[$temp];
+									           --$temp;
 									            $items=unserialize($row['items']);
 									            $items_f="";
 									            $round = count($items);
@@ -161,7 +169,7 @@
 
 
 									            echo "<tr>"; 
-									            echo "<strong><td><a href=".$_SESSION['link']."?link=".$row[''].">".$row['id']."</a></td></strong>"; 
+									            echo "<strong><td><a href=".$_SESSION['link']."?link=".$row['id'].">".$row['id']."</a></td></strong>"; 
 									            echo "<td>".$row['date']."</td>"; 
 									            echo "<td>".$row['time']."</td>"; 
 									            echo "<td><pre>".$items_f."</pre></td>"; 

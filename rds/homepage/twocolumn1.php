@@ -238,6 +238,23 @@
 									        { 
 									            
 
+									        	if(($row['name']=="tea"||$row['name']=="coffee")&&$val==true)
+									        	{	//Tea and coffee should never run out
+									        		if($row['stock']<=$row['threshold'])
+									            	{	//Update status
+									            	
+									            		$sql2 = "UPDATE item SET stock=100 WHERE name='".$row['name']."'"; 
+														if($mysqli->query($sql2) == false){ 
+														
+														    echo "ERROR: Could not able to execute $sql. "  
+														                                        . $mysqli->error; 
+														                                       $val=false;
+														} 	
+									            	}
+									        	}
+
+
+									        	else{
 									        	if($j<=$i && $val==true)
 									        	{
 									        		if($row['stock']<=$row['threshold'])
@@ -251,7 +268,7 @@
 														                                       $val=false;
 														} 	
 									            	}
-									        	}
+									        	}}
 									 
 
 									            	$j++;

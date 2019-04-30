@@ -44,6 +44,7 @@
 
 <html>
 	<head>
+		<meta http-equiv="refresh" content="0.5">
 		<meta charset="utf-8">
 		<title>RDS</title>
 		<link rel="stylesheet" href="style.css">
