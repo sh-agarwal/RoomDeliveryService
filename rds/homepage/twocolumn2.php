@@ -108,15 +108,23 @@ tr:nth-child(even) {background-color: #f2f2f2;}
                                     <tr>  
                                          
                                          
-                                    	<th bgcolor="#000000"><font color="#fff">Order Id</font></th>
-                                         <th bgcolor="#000000"><font color="#fff">Date</font></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Order Id</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Date</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Time</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Items</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Quantity</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Rate</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Total Price</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Prep Time</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Status</font></strong></th>
+                                         <!-- <th bgcolor="#000000"><font color="#fff">Date</font></th>
                                          <th bgcolor="#000000"><font color="#fff">Time</font></th>
                                          <th bgcolor="#000000"><font color="#fff">Items</font></th>
                                          <th bgcolor="#000000"><font color="#fff">Quantity</font></th>
                                          <th bgcolor="#000000"><font color="#fff">Rate</font></th>
                                          <th bgcolor="#000000"><font color="#fff">Total Price</font></th>
                                          <th bgcolor="#000000"><font color="#fff">Prep Time</font></th>
-                                         <th bgcolor="#000000"><font color="#fff">Status</font></th>
+                                         <th bgcolor="#000000"><font color="#fff">Status</font></th> -->
 
                                          <!-- <td>Order Id</td>  
                                          <td>Date</td>

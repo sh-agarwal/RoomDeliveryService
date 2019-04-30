@@ -108,7 +108,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 				<nav id="nav">
 					<ul>
 						<li ><a href="twocolumn1.php"><?php echo "Logged in as: ".$_COOKIE['username']; ?></a></li>
-						<li><a href="index.php">Home</a></li>
+						<li><a href="index.php">Items</a></li>
             <li class="active"><a href="twocolumn1.php">Purchase</a></li>
 						<li><a href="twocolumn2.php">Sales</a></li>
             <li><a href="twocolumn3.php">Queue</a></li>
@@ -156,7 +156,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
                                          <!-- <td>Item</td>
 
-                                         <td>Price (per unit)</td>
+                                         <td>Price (per unit)</td>s
                                          <td>Stock</td>
                                          <td>Quantity</td> -->
                                     </tr>

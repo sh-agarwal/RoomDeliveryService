@@ -380,10 +380,13 @@ tr:nth-child(even) {background-color: #f2f2f2;}
                           <div class="table-responsive">  
                                <table class="table table-bordered" id="dynamic_field">  
                                     <tr  > 
-                                         <th bgcolor="#000000"><font color="#fff">Item</font></th>
-                                         <th bgcolor="#000000"><font color="#fff">Rate</font></th>
+                                         <th bgcolor="#000000"><strong><font color="#fff">Item</font></strong></th>
+                                         <th bgcolor="#000000"><strong><font color="#fff">Rate</font></strong></th>
+                                         <th bgcolor="#000000"><strong><font color="#fff">Stock</font></strong></th>
+                                         <th bgcolor="#000000"><strong><font color="#fff">Quantity</font></strong></th>
+                                         <!-- <th bgcolor="#000000"><font color="#fff">Rate</font></th>
                                          <th bgcolor="#000000"><font color="#fff">Stock</font></th>
-                                         <th bgcolor="#000000"><font color="#fff">Quantity</font></th>
+                                         <th bgcolor="#000000"><font color="#fff">Quantity</font></th> -->
                                          
                                         <!--  <th  >Item</th>  
                                          
