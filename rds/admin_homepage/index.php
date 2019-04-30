@@ -261,7 +261,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 
 
-									            <td><input type="text" name="name" placeholder ="Enter item name" class="form-control name_list" required="required" pattern="[A-Za-z]+"/></td>
+									            <td><input type="text" name="name" placeholder ="Enter item name" class="form-control name_list" required="required" pattern="[A-Za-z' ']+"/></td>
 									            <td><input type="number" name="stock" value="0" class="form-control name_list" min="0" /></td>
 									            <td><input type="number" name="rate" value="0" class="form-control name_list" min="0" /></td>
 									            <td><input type="number" name="threshold" value="0" class="form-control name_list" min="0" /></td>
