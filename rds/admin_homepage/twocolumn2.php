@@ -62,33 +62,11 @@
 		<div id="featured">
 			<div class="container">
 				<div class="row">
-					<div class="3u">
-						<section>
-							<header>
-								<h2>Popular</h2>
-							</header>
-						</section>
-						<section>
-							<a href="#" class="image full"><img src="images/pics03.jpg" alt=""></a>
-							<header>
-								<h2>Delicious Parathas</h2>
-							</header>
-							<p>Simply Amazing.</p>
-						</section>
-						<section>
-							<a href="#" class="image full"><img src="images/pics05.jpg" alt=""></a>
-							<header>
-								<h2>Refreshing Beverages</h2>
-							</header>
-							<p>Beat the Summer.</p>
-						</section>
-					</div>
-
 					<div class="9u">
 						<section>
 							<header>
-								<h2>Your Orders</h2>
-								<h3><?php echo $msg; ?></h3>
+								<h2>Sales</h2>
+                <h4> <?php echo $msg; ?> </h4>
 							</header>
 
 
@@ -98,11 +76,11 @@
 					 <div class="form-group">
              <form role = "form"
                 action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
-                <button type = "submit" name = "daily" value = "daily">Daily</button>
-                <button type = "submit" name = "monthly" value = "monthly">Monthly</button>
+                <button type = "submit" name = "daily" value = "daily" class="btn btn-info">Daily</button>
+                <button type = "submit" name = "monthly" value = "monthly" class="btn btn-info">Monthly</button>
                 <input type="date" name="start_date" placeholder="Start Date">
                 <input type="date" name="end_date" placeholder="End Date">
-                <button type = "submit" name = "period" value = "period">Choose Period</button>
+                <button type = "submit" name = "period" value = "period" class="btn btn-info">Choose Period</button>
                 <br><br><br>
               </form>
                      <form name="add_name" id="add_name" action="twocolumn1.php" method="post">
@@ -120,7 +98,8 @@
 
                                     </tr>
 
-                                    <?php
+                <?php
+                  $msg = '';
 									$mysqli = OpenCon();
 
 									$user2=$_COOKIE['username'];
@@ -140,7 +119,7 @@
                     $last_month = new DateTime($today);
                     $last_month->sub(new DateInterval('P1M'));
                     $last_month = $last_month->format('Y-m-d');
-                    // echo $$last_month;
+                    // echo $last_month;
                     // echo $today;
                     $sql = "SELECT * FROM orders WHERE date between '$last_month' and
                     DATE_ADD('$today',INTERVAL 1 DAY)";
@@ -208,7 +187,7 @@
 									        $res->free();
 									    }
 									    else {
-									        echo "No past orders";
+									        echo "No sales in given period";
 									    }
 									}
 

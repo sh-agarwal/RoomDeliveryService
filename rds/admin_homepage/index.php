@@ -5,7 +5,7 @@
 	session_start();
 	$_SESSION['link']="./invoice.php";
 
-?> 
+?>
 
 <html>
 	<head>
@@ -15,9 +15,9 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
-           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
-           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
@@ -35,15 +35,15 @@
 
 		<?php
 		    $msg='';
-		    
+
 		    if($_SERVER['REQUEST_METHOD'] == "POST" and isset($_POST['submit']) )
 		    {
 		       //$msg="Reached Here";
 		       $mysqli = OpenCon();
-		     
 
-		      
-						
+
+
+
 						$name=$_POST['name'];
 						$preptime=$_POST['preptime'];
 						$stock=$_POST['stock'];
@@ -58,39 +58,39 @@
 						$val=true;
 
 						//Checking if name already exists
-						$sql = "SELECT * FROM item"; 
-									if ($res = $mysqli->query($sql)) { 
-									    if ($res->num_rows > 0) { 
-									        
-									        while ($row = $res->fetch_array())  
-									        { 
-									            
+						$sql = "SELECT * FROM item";
+									if ($res = $mysqli->query($sql)) {
+									    if ($res->num_rows > 0) {
+
+									        while ($row = $res->fetch_array())
+									        {
+
 									        	if($row['name']==$name)
 									        	{
 									        		$val=false;
 									        		$msg="<strong><font color=red size='4pt'>Item name already present</font color></strong>";
 									        	}
-									        	
-								
-									        } 
-									        $res->free(); 
-									    } 
-									    else { 
-									        echo "No items present in items table."; 
+
+
+									        }
+									        $res->free();
+									    }
+									    else {
+									        echo "No items present in items table.";
 									        $val=false;
-									    } 
-									} 
-						
+									    }
+									}
+
 						if($val==true)
 						{
-							$sql = "INSERT INTO item (`name`, `preptime`, stock, threshold, `status`, price, cp) 
-					              VALUES('$name',$preptime,$stock,$threshold,$status,$price,$cp)"; 
-							   
+							$sql = "INSERT INTO item (`name`, `preptime`, stock, threshold, `status`, price, cp)
+					              VALUES('$name',$preptime,$stock,$threshold,$status,$price,$cp)";
+
 							    if ($mysqli->query($sql) ==  false)
 							    {
 							    	$val=false;
 							    	$msg="<strong><font color=red size='4pt'>Item could not be added</font color></strong>";
-							    } 
+							    }
 						}
 
 						if($val==true)
@@ -98,24 +98,24 @@
 							$msg="<strong><font color=green size='4pt'>Item successfully added</font color></strong>";
 
 						}
-						
-						
-			
-					
+
+
+
+
 		    }
-		    
+
 		?>
 
 		<!-- Header -->
 		<div id="header">
 			<div class="container">
-				
+
 				<!-- Logo -->
 				<div id="logo">
 					<h1><a href="#">RDS</a></h1>
 					<h1><?php echo "Logged in as: ".$_COOKIE['username']; ?></h1>
 				</div>
-				
+
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
@@ -136,119 +136,97 @@
 		<div id="featured">
 			<div class="container">
 				<div class="row">
-					<div class="3u">
-						<section>
-							<header>
-								<h2>Popular</h2>
-							</header>
-						</section>
-						<section>
-							<a href="#" class="image full"><img src="images/pics03.jpg" alt=""></a>
-							<header>
-								<h2>Delicious Parathas</h2>
-							</header>
-							<p>Simply Amazing.</p>				
-						</section>
-						<section>
-							<a href="#" class="image full"><img src="images/pics05.jpg" alt=""></a>
-							<header>
-								<h2>Refreshing Beverages</h2>
-							</header>
-							<p>Beat the Summer.</p>				
-						</section>
-					</div>		
-					
 					<div class="9u">
 						<section>
 							<header>
 								<h2>Items</h2>
-								
+
 							</header>
-							
-							
+
+
 						</section>
 					</div>
 
-					 <table class="table table-bordered" id="dynamic_field">  
-                                    <tr>  
-                                         
-                                         <td><strong>Name</strong></td>  
+					 <table class="table table-bordered" id="dynamic_field">
+                                    <tr>
+
+                                         <td><strong>Name</strong></td>
                                          <td><strong>Stock</strong></td>
-                                         <td><strong>Rate</strong></td> 
+                                         <td><strong>Rate</strong></td>
                                          <td><strong>Threshold</strong></td>
-                                         
+
                                          <td><strong>Cost Price</strong> </td>
                                          <td><strong>Prep Time</strong></td>
-                                         
-            
-                                    </tr> 
-                                     
+
+
+                                    </tr>
+
                                     <?php
-									$mysqli = OpenCon(); 
-									
-									
+									$mysqli = OpenCon();
+
+
 									//$user2=$_COOKIE['username'];
-								  
-									$sql = "SELECT * FROM item"; 
-									if ($res = $mysqli->query($sql)) { 
-									    if ($res->num_rows > 0) { 
-									        
-									        while ($row = $res->fetch_array())  
-									        { 
-									           
-									            
-									            echo "<tr>"; 
-									            echo "<strong><td>".$row['name']."</td></strong>"; 
-									            echo "<td>".$row['stock']."</td>"; 
-									            echo "<td>".$row['price']."</td>"; 
-									          
-									            echo "<td>".$row['threshold']."</td>"; 	
-									            echo "<td>".$row['cp']."</td>"; 
-									            echo "<td>".$row['preptime']."</td>"; 
-									            
-									            echo "</tr>"; 
-									        } 
-									        $res->free(); 
-									    } 
-									    else { 
-									        echo "No items are there"; 
-									    } 
-									} 
 
-									
+									$sql = "SELECT * FROM item";
+									if ($res = $mysqli->query($sql)) {
+									    if ($res->num_rows > 0) {
 
-									
+									        while ($row = $res->fetch_array())
+									        {
 
-									
-				
-									
+
+									            echo "<tr>";
+									            echo "<strong><td>".$row['name']."</td></strong>";
+									            echo "<td>".$row['stock']."</td>";
+									            echo "<td>".$row['price']."</td>";
+
+									            echo "<td>".$row['threshold']."</td>";
+									            echo "<td>".$row['cp']."</td>";
+									            echo "<td>".$row['preptime']."</td>";
+
+									            echo "</tr>";
+									        }
+									        $res->free();
+									    }
+									    else {
+									        echo "No items are there";
+									    }
+									}
+
+
+
+
+
+
+
+
 
 									$mysqli->close();
-									?> 
-                               </table> 
+									?>
+                               </table>
 
-					 <div class="form-group">  
-                     <form name="add_name" id="add_name" action="index.php" method="post">  
-                          <div class="table-responsive">  
-                               
+					 <div class="form-group">
+                     <form name="add_name" id="add_name" action="index.php" method="post">
+                          <div class="table-responsive">
+
 
                                <h2>Add new item</h2>
                                <h3><?php echo $msg; ?></h3>
-                               <table class="table table-bordered" id="dynamic_field2">  
-                                    <tr>  
-                                         
-                                         <td><strong>Name</strong></td>  
-                                         <td><strong>Stock</strong></td>
-                                         <td><strong>Rate</strong></td> 
-                                         <td><strong>Threshold</strong></td>
-                                         
-                                         <td><strong>Cost Price</strong> </td>
-                                         <td><strong>Prep Time</strong></td> 
-                                    </tr>  
+                               <table class="table table-bordered" id="dynamic_field2">
+                                    <tr>
 
-                               
-									            
-									            
+                                         <td><strong>Name</strong></td>
+                                         <td><strong>Stock</strong></td>
+                                         <td><strong>Rate</strong></td>
+                                         <td><strong>Threshold</strong></td>
+
+                                         <td><strong>Cost Price</strong> </td>
+                                         <td><strong>Prep Time</strong></td>
+                                    </tr>
+
+
+
+
 									            <td><input type="text" name="name" placeholder ="Enter item name" class="form-control name_list" required="required" pattern="[A-Za-z]+"/></td>
 									            <td><input type="number" name="stock" value="0" class="form-control name_list" min="0" /></td>
 									            <td><input type="number" name="rate" value="0" class="form-control name_list" min="0" /></td>
@@ -257,8 +235,8 @@
 									            <td><input type="number" name="preptime" value="0" class="form-control name_list" min="0" /></td>
 									            </tr>
 
-									   
-                               </table>  
+
+                               </table>
 
 
 
@@ -267,9 +245,9 @@
 
                               <input type="submit" name="submit" id="submit" class="btn btn-info" value="Add" />
                               <!--  <input type="button"  value="Submit" />   -->
-                          </div>  
-                     </form>  
-                </div>   
+                          </div>
+                     </form>
+                </div>
 
 				</div>
 			</div>
@@ -303,13 +281,13 @@
 								<h2></h2>
 							</header>
 							<ul class="style1">
-								
+
 							</ul>
 						</section>
 					</div>
 					<div class="6u">
 						<section>
-							
+
 							<header>
 								<h2>Coming Soon...</h2>
 							</header>
@@ -327,7 +305,7 @@
 					<div class="8u">
 						<section>
 							<header>
-							
+
 								<h2>Core 2 Canteen</h2>
 							<a href="#" class="image full"><img src="images/map.png" alt=""></a>
 							</header>
@@ -345,7 +323,7 @@
 								<li><a href="http://www.iitg.ac.in">IITG Webpage</a></li>
 								<li><a href="https://intranet.iitg.ernet.in">IITG Webpage (Intranet)</a></li>
 								<li><a href="https://www.office.com">Outlook</a></li>
-								
+
 							</ul>
 						</section>
 					</div>

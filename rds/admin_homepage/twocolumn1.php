@@ -123,28 +123,6 @@
 		<div id="featured">
 			<div class="container">
 				<div class="row">
-					<div class="3u">
-						<section>
-							<header>
-								<h2>Popular</h2>
-							</header>
-						</section>
-						<section>
-							<a href="#" class="image full"><img src="images/pics03.jpg" alt=""></a>
-							<header>
-								<h2>Delicious Parathas</h2>
-							</header>
-							<p>Simply Amazing.</p>
-						</section>
-						<section>
-							<a href="#" class="image full"><img src="images/pics05.jpg" alt=""></a>
-							<header>
-								<h2>Refreshing Beverages</h2>
-							</header>
-							<p>Beat the Summer.</p>
-						</section>
-					</div>
-
 					<div class="9u">
 						<section>
 							<header>
