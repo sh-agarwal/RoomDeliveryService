@@ -101,7 +101,7 @@
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-
+						<li ><a href="twocolumn1.php"><?php echo "Logged in as: ".$_COOKIE['username']; ?></a></li>
 						<li><a href="index.php">Home</a></li>
             <li class="active"><a href="twocolumn1.php">Purchase</a></li>
 						<li><a href="twocolumn2.php">Sales</a></li>
