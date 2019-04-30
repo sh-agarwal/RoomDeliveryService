@@ -18,7 +18,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
 		<script src="js/skel-panels.min.js"></script>
@@ -28,8 +28,7 @@
 			<link rel="stylesheet" href="css/style.css" />
 			<link rel="stylesheet" href="css/style-desktop.css" />
 		</noscript>
-		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+
 	</head>
 	<body>
 
@@ -97,29 +96,64 @@
 					</div>
 
 					 <div class="form-group">
+             <form role = "form"
+                action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
+                <button type = "submit" name = "daily" value = "daily">Daily</button>
+                <button type = "submit" name = "monthly" value = "monthly">Monthly</button>
+                <input type="date" name="start_date" placeholder="Start Date">
+                <input type="date" name="end_date" placeholder="End Date">
+                <button type = "submit" name = "period" value = "period">Choose Period</button>
+                <br><br><br>
+              </form>
                      <form name="add_name" id="add_name" action="twocolumn1.php" method="post">
                           <div class="table-responsive">
                                <table class="table table-bordered" id="dynamic_field">
                                     <tr>
 
-                                         <td>Order Id</td>
                                          <td>Date</td>
                                          <td>Time</td>
                                          <td>Items</td>
                                          <td>Quantity</td>
                                          <td>Price</td>
                                          <td>Total Price</td>
-                                         <td>Prep Time</td>
-                                         <td>Status</td>
+                                         <td>Profit</td>
 
                                     </tr>
+
                                     <?php
 									$mysqli = OpenCon();
 
 									$user2=$_COOKIE['username'];
 
-									$sql = "SELECT * FROM orders where username='".$user2."'";
-									if ($res = $mysqli->query($sql)) {
+                  $period = $_POST['radio'];
+                  $today = date('Y-m-d');
+
+                  if(isset($_POST['daily'])){
+                    $yesterday = new DateTime($today);
+                    $yesterday->sub(new DateInterval('P1D'));
+                    $yesterday = $yesterday->format('Y-m-d');
+
+                    $sql = "SELECT * FROM orders WHERE date between '$yesterday' and
+                    DATE_ADD('$today',INTERVAL 1 DAY)";
+                  }
+                  else if(isset($_POST['monthly'])){
+                    $last_month = new DateTime($today);
+                    $last_month->sub(new DateInterval('P1M'));
+                    $last_month = $last_month->format('Y-m-d');
+                    // echo $$last_month;
+                    // echo $today;
+                    $sql = "SELECT * FROM orders WHERE date between '$last_month' and
+                    DATE_ADD('$today',INTERVAL 1 DAY)";
+                  }
+                  else{
+                    $period_beg = $_POST['start_date'];
+                    //echo $period_beg;
+                    $period_end = $_POST['end_date'];
+                    //echo $period_end;
+                    $sql = "SELECT * FROM orders WHERE date between '$period_beg' and
+                    DATE_ADD('$period_end',INTERVAL 1 DAY)";
+                  }
+                  if ($res = $mysqli->query($sql)) {
 									    if ($res->num_rows > 0) {
 
 									        while ($row = $res->fetch_array())
@@ -161,15 +195,13 @@
 
 
 									            echo "<tr>";
-									            echo "<strong><td><a href=".$_SESSION['link']."?link=".$row['id'].">".$row['id']."</a></td></strong>";
 									            echo "<td>".$row['date']."</td>";
 									            echo "<td>".$row['time']."</td>";
 									            echo "<td><pre>".$items_f."</pre></td>";
 									            echo "<td><pre>".$q_f."</pre></td>";
 									            echo "<td><pre>".$price_f."</pre></td>";
 									            echo "<td>".$row['total']."</td>";
-									            echo "<td>".$row['preptime']."</td>";
-									            echo "<td>".$status."</td>";
+									            echo "<td>".$row['profit']."</td>";
 
 									            echo "</tr>";
 									        }
