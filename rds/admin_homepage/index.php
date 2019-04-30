@@ -15,14 +15,17 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="style2.css" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+           <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> -->
+           <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
 		<script src="js/skel.min.js"></script>
-		<script src="js/skel-panels.min.js"></script>
+<!-- 		<script src="js/skel-panels.min.js"></script> -->
 		<script src="js/init.js"></script>
+
+
 		<noscript>
 			<link rel="stylesheet" type="text/css" href="css/skel-noscript.css" />
 			<link rel="stylesheet" type="text/css" href="css/style.css" />
@@ -30,8 +33,14 @@
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+		<style>
+
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+/*.header1: {background-color: #000000;color: rgb(255,255,255);}*/
+</style>
 	</head>
-	<body>
+	<body >
 
 		<?php
 		    $msg='';
@@ -107,7 +116,7 @@
 		?>
 
 		<!-- Header -->
-		<div id="header">
+		<div id="header" bgcolor="#E6E6FA">
 			<div class="container">
 
 				<!-- Logo -->
@@ -151,13 +160,27 @@
 					 <table class="table table-bordered" id="dynamic_field">
                                     <tr>
 
-                                         <td><strong>Name</strong></td>
+                                         
+
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Name</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Stock</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Rate</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Threshold</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Cost Price</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Prep Time</font></strong></th>
+                                    	
+
+                                         
+
+
+
+                                         <!-- <td><strong>Name</strong></td>
                                          <td><strong>Stock</strong></td>
                                          <td><strong>Rate</strong></td>
                                          <td><strong>Threshold</strong></td>
 
                                          <td><strong>Cost Price</strong> </td>
-                                         <td><strong>Prep Time</strong></td>
+                                         <td><strong>Prep Time</strong></td> -->
 
 
                                     </tr>
@@ -216,13 +239,23 @@
                                <table class="table table-bordered" id="dynamic_field2">
                                     <tr>
 
-                                         <td><strong>Name</strong></td>
+                                         <th bgcolor="#000000"><strong><font color="#fff">Name</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Stock</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Rate</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Threshold</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Cost Price</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Prep Time</font></strong></th>
+                                    	
+
+
+
+                                         <!-- <td><strong>Name</strong></td>
                                          <td><strong>Stock</strong></td>
                                          <td><strong>Rate</strong></td>
                                          <td><strong>Threshold</strong></td>
 
                                          <td><strong>Cost Price</strong> </td>
-                                         <td><strong>Prep Time</strong></td>
+                                         <td><strong>Prep Time</strong></td> -->
                                     </tr>
 
 

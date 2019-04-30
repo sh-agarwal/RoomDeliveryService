@@ -29,6 +29,13 @@
 			<link rel="stylesheet" href="css/style-desktop.css" />
 		</noscript>
 
+		<style>
+
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+/*.header1: {background-color: #000000;color: rgb(255,255,255);}*/
+</style>
+
 	</head>
 	<body>
 
@@ -89,13 +96,25 @@
                                <table class="table table-bordered" id="dynamic_field">
                                     <tr>
 
+                                         <th bgcolor="#000000"><strong><font color="#fff">Date</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Time</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Items</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Quantity</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Price</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Total Price</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Profit</font></strong></th>
+                                    	
+
+
+
+<!-- 
                                          <td>Date</td>
                                          <td>Time</td>
                                          <td>Items</td>
                                          <td>Quantity</td>
                                          <td>Price</td>
                                          <td>Total Price</td>
-                                         <td>Profit</td>
+                                         <td>Profit</td> -->
 
                                     </tr>
 

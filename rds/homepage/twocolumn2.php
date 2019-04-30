@@ -30,6 +30,11 @@
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+		<style>
+
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
 	</head>
 	<body>
 
@@ -102,7 +107,18 @@
                                <table class="table table-bordered" id="dynamic_field">  
                                     <tr>  
                                          
-                                         <td>Order Id</td>  
+                                         
+                                    	<th bgcolor="#000000"><font color="#fff">Order Id</font></th>
+                                         <th bgcolor="#000000"><font color="#fff">Date</font></th>
+                                         <th bgcolor="#000000"><font color="#fff">Time</font></th>
+                                         <th bgcolor="#000000"><font color="#fff">Items</font></th>
+                                         <th bgcolor="#000000"><font color="#fff">Quantity</font></th>
+                                         <th bgcolor="#000000"><font color="#fff">Rate</font></th>
+                                         <th bgcolor="#000000"><font color="#fff">Total Price</font></th>
+                                         <th bgcolor="#000000"><font color="#fff">Prep Time</font></th>
+                                         <th bgcolor="#000000"><font color="#fff">Status</font></th>
+
+                                         <!-- <td>Order Id</td>  
                                          <td>Date</td>
                                          <td>Time</td> 
                                          <td>Items</td>
@@ -110,7 +126,7 @@
                                          <td>Rate</td>
                                          <td>Total Price</td>
                                          <td>Prep Time</td>
-                                         <td>Status</td>
+                                         <td>Status</td> -->
             
                                     </tr>  
                                     <?php

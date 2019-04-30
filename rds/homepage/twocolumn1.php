@@ -30,6 +30,12 @@
 		</noscript>
 		<!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
+		<style>
+
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+/*.header1: {background-color: #000000;color: rgb(255,255,255);}*/
+</style>
 	</head>
 	<body>
 
@@ -373,13 +379,17 @@
                      <form name="add_name" id="add_name" action="twocolumn1.php" method="post">  
                           <div class="table-responsive">  
                                <table class="table table-bordered" id="dynamic_field">  
-                                    <tr>  
+                                    <tr  > 
+                                         <th bgcolor="#000000"><font color="#fff">Item</font></th>
+                                         <th bgcolor="#000000"><font color="#fff">Rate</font></th>
+                                         <th bgcolor="#000000"><font color="#fff">Stock</font></th>
+                                         <th bgcolor="#000000"><font color="#fff">Quantity</font></th>
                                          
-                                         <td>Item</td>  
+                                        <!--  <th  >Item</th>  
                                          
-                                         <td>Price (per unit)</td>
-                                         <td>Stock</td>
-                                         <td>Quantity</td> 
+                                         <th>Price (per unit)</th>
+                                         <th>Stock</th>
+                                         <th>Quantity</th>  -->
                                     </tr>  
                                     <?php
 									$mysqli = OpenCon(); 
