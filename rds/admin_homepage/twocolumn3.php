@@ -40,13 +40,14 @@
 				<!-- Logo -->
 				<div id="logo">
 					<h1><a href="#">RDS</a></h1>
-					<h1><?php echo "Logged in as: ".$_COOKIE['username']; ?></h1>
+					
 				</div>
 				
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
-						<li><a href="index.php">Home</a></li>
+						<li ><a href="twocolumn3.php"><?php echo "Logged in as: ".$_COOKIE['username']; ?></a></li>
+						<li><a href="index.php">Items</a></li>
             <li><a href="twocolumn1.php">Purchase</a></li>
 						<li ><a href="twocolumn2.php">Sales</a></li>
             <li class="active"><a href="twocolumn3.php">Queue</a></li>
