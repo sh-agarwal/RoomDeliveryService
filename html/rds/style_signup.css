@@ -1,0 +1,93 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: url(./images/img2.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
+
+.signupbox{
+    margin-top: 20px;
+    width: 600px;
+    height: 920px;
+    background-image: url('back2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 20px 20px;
+    border-radius: 20px;
+}
+
+
+
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+
+
+.signupbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.signupbox input[type="text"], input[type="password"], input[type="submit"] {
+
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.signupbox input[type="text"], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+
+
+.signupbox button
+{
+    border: none;
+    outline: none;
+    height: 40px;
+
+    background-image: url('b4.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.signupbox button:hover
+{
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
+.signupbox a{
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 20px;
+    color: rgb(0,0,0);
+}
+
+.signupbox a:hover
+{
+    color: rgb(255,0,255);
+}
