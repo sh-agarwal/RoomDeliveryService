@@ -1,16 +1,10 @@
 <!DOCTYPE HTML>
-<?php
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header( 'HTTP/1.0 403 Forbidden', TRUE, 403 );
-        header('location:../../error/error.html');
-        exit;
-    }
-?>
+
 <?php
   include "../db_connection.php";
 	session_start();
 
-?>
+?> 
 
 <html>
 	<head>
@@ -24,9 +18,9 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="js/skel.min.js"></script>
@@ -67,49 +61,49 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 		       $val=false;
 		       if($i>=$j)
 		       		$val=true;
-		       $sql = "SELECT * FROM item";
-									if ($res = $mysqli->query($sql)) {
-									    if ($res->num_rows > 0) {
-
-									        while ($row = $res->fetch_array())
-									        {
-
+		       $sql = "SELECT * FROM item"; 
+									if ($res = $mysqli->query($sql)) { 
+									    if ($res->num_rows > 0) { 
+									        
+									        while ($row = $res->fetch_array())  
+									        { 
+									            
 
 									        	if($j<=$i && $val==true)
 									        	{
 									        		if($_POST['qty'.$j]>$row['stock'])
 									            	{
 									            		$msg="<strong><font color=red size='4pt'>Quantity for item ".$j." exceeds available stock. Kindly order again.</font color></strong>";
-									            		$val=false;
+									            		$val=false;	
 									            	}
 									        	}
-
+									 
 
 									            	$j++;
-
-									        }
-									        $res->free();
-									    }
-									    else {
-									        echo "No matching records are found.";
+								
+									        } 
+									        $res->free(); 
+									    } 
+									    else { 
+									        echo "No matching records are found."; 
 									        $val=false;
-									    }
-									}
-
+									    } 
+									} 
+		       
 		       	if($val==true)
 		       	{
 		       		$j=1;
-		       		$sql = "SELECT * FROM item";
-									if ($res = $mysqli->query($sql)) {
-									    if ($res->num_rows > 0) {
+		       		$sql = "SELECT * FROM item"; 
+									if ($res = $mysqli->query($sql)) { 
+									    if ($res->num_rows > 0) { 
 									        $val=false;
-									        while ($row = $res->fetch_array())
-									        {
-
-
+									        while ($row = $res->fetch_array())  
+									        { 
+									            
+												
 												if($j<=$i)
 									        	{
-
+									        		
 									        		$quantity[$j]=$_POST['qty'.$j];
 									        		if($quantity[$j]>0)
 									        			$val=true;
@@ -122,20 +116,20 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 									        			$_POST['qty'.$j]=$row['stock'];
 									        		$names[$j]=$row['name'];
 									        	}
-
+									 
 
 									            	$j++;
-									        }
-									        $res->free();
-									    }
-									    else {
-									        echo "No matching records are found.";
+									        } 
+									        $res->free(); 
+									    } 
+									    else { 
+									        echo "No matching records are found."; 
 									        $val=false;
-									    }
-									}
+									    } 
+									} 
 
-
-
+					
+									   
 		       	}
 
 		       	$contact;
@@ -146,31 +140,31 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 		       	if($val==true)
 		       	{
 
-
+		       		
 		       		//Getting user's info
 
-		       		$sql = "SELECT * FROM user WHERE username='".$_COOKIE['username']."'";
-									if ($res = $mysqli->query($sql)) {
-									    if ($res->num_rows > 0) {
-
-									        while ($row = $res->fetch_array())
-									        {
-
+		       		$sql = "SELECT * FROM user WHERE username='".$_COOKIE['username']."'"; 
+									if ($res = $mysqli->query($sql)) { 
+									    if ($res->num_rows > 0) { 
+									        
+									        while ($row = $res->fetch_array())  
+									        { 
+									            
 									        	$firstname=$row['firstname'];
 									        	$lastname=$row['lastname'];
 									        	$address=$row['address'];
 									        	$contact=$row['contact'];
-
-
-									        }
-									        $res->free();
-									    }
-									    else {
-									        echo "No matching records are found.";
+									        	
+								
+									        } 
+									        $res->free(); 
+									    } 
+									    else { 
+									        echo "No matching records are found."; 
 									        $val=false;
-									    }
-									}
-
+									    } 
+									} 
+		       
 
 					}
 
@@ -178,7 +172,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 					if($val==true)		//Inserting new entry in orders table
 					{
-
+						
 						$d=date("Y-m-d");
 						$t=date("H:i:s");
 						$items_f=serialize($names);
@@ -189,7 +183,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 						while($j<=$i)	//total price ,profit and prep_time
 						{
 							$total+=($price[$j]*$quantity[$j]);
-							$temp+=($cp[$j]*$quantity[$j]);
+							$temp+=($cp[$j]*$quantity[$j]);	
 							$prep_total+=($preptime[$j]*$quantity[$j]);
 							$j++;
 						}
@@ -197,44 +191,44 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 						$prep_total+=2;
 						//$msg=$t;
 
-						$sql = "INSERT INTO orders (`date`, `time`, username, items, quantity, price, total, profit, address, preptime, contact, status, firstname, lastname)
-					              VALUES('$d','$t','$user_temp','$items_f','$quantity_f','$price_f',$total,$profit,'$address',$prep_total,$contact,0,'$firstname','$lastname')";
-
+						$sql = "INSERT INTO orders (`date`, `time`, username, items, quantity, price, total, profit, address, preptime, contact, status, firstname, lastname) 
+					              VALUES('$d','$t','$user_temp','$items_f','$quantity_f','$price_f',$total,$profit,'$address',$prep_total,$contact,0,'$firstname','$lastname')"; 
+							   
 							    if ($mysqli->query($sql) ==  false)
 							    {
 							    	echo "ERROR: Could not able to execute $sql. "
-							           .$mysqli->error;
+							           .$mysqli->error; 
 							          $val=false;
-							    }
+							    } 
+							
+							    
+						} 
+					
+						
 
-
-						}
-
-
-
-
+		       	
 
 		       	if($val==true)		//Updating items stock and status
 		       	{
 		       		$j=1;
+		       		
+									        
+									        while ($j<=$i)  
+									        { 
+									            
 
-
-									        while ($j<=$i)
-									        {
-
-
-									            $sql = "UPDATE item SET stock=".$_POST['qty'.$j]." WHERE name='".$names[$j]."'";
-												if($mysqli->query($sql) == false){
-
-												    echo "ERROR: Could not able to execute $sql. "
-												                                        . $mysqli->error;
+									            $sql = "UPDATE item SET stock=".$_POST['qty'.$j]." WHERE name='".$names[$j]."'"; 
+												if($mysqli->query($sql) == false){ 
+												
+												    echo "ERROR: Could not able to execute $sql. "  
+												                                        . $mysqli->error; 
 												                                       $val=false;
-												}
+												} 
 
-
+									 
 
 									            	$j++;
-									        }
+									        } 
 
 
 
@@ -245,26 +239,26 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 		       	{
 
 		       		$j=1;
-		       		$sql = "SELECT * FROM item";
-									if ($res = $mysqli->query($sql)) {
-									    if ($res->num_rows > 0) {
-
-									        while ($row = $res->fetch_array())
-									        {
-
+		       		$sql = "SELECT * FROM item"; 
+									if ($res = $mysqli->query($sql)) { 
+									    if ($res->num_rows > 0) { 
+									        
+									        while ($row = $res->fetch_array())  
+									        { 
+									            
 
 									        	if(($row['name']=="tea"||$row['name']=="coffee")&&$val==true)
 									        	{	//Tea and coffee should never run out
 									        		if($row['stock']<=$row['threshold'])
 									            	{	//Update status
-
-									            		$sql2 = "UPDATE item SET stock=100 WHERE name='".$row['name']."'";
-														if($mysqli->query($sql2) == false){
-
-														    echo "ERROR: Could not able to execute $sql. "
-														                                        . $mysqli->error;
+									            	
+									            		$sql2 = "UPDATE item SET stock=100 WHERE name='".$row['name']."'"; 
+														if($mysqli->query($sql2) == false){ 
+														
+														    echo "ERROR: Could not able to execute $sql. "  
+														                                        . $mysqli->error; 
 														                                       $val=false;
-														}
+														} 	
 									            	}
 									        	}
 
@@ -274,29 +268,29 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 									        	{
 									        		if($row['stock']<=$row['threshold'])
 									            	{	//Update status
-
-									            		$sql2 = "UPDATE item SET status=1 WHERE name='".$row['name']."'";
-														if($mysqli->query($sql2) == false){
-
-														    echo "ERROR: Could not able to execute $sql. "
-														                                        . $mysqli->error;
+									            	
+									            		$sql2 = "UPDATE item SET status=1 WHERE name='".$row['name']."'"; 
+														if($mysqli->query($sql2) == false){ 
+														
+														    echo "ERROR: Could not able to execute $sql. "  
+														                                        . $mysqli->error; 
 														                                       $val=false;
-														}
+														} 	
 									            	}
 									        	}}
-
+									 
 
 									            	$j++;
-
-									        }
-									        $res->free();
-									    }
-									    else {
-									        echo "No matching records are found.";
+								
+									        } 
+									        $res->free(); 
+									    } 
+									    else { 
+									        echo "No matching records are found."; 
 									        $val=false;
-									    }
-									}
-
+									    } 
+									} 
+		       
 
 
 
@@ -306,27 +300,27 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 		       	{
 		       		$msg="<strong><font color=green bold size='4pt'>Order Successfully placed</font color></strong>";
 		       	}
-
+		       
 
 
 			$mysqli->close();
 		    }
-
+		    
 		?>
 
-
+		
 
 
 		<!-- Header -->
 		<div id="header">
 			<div class="container">
-
+				
 				<!-- Logo -->
 				<div id="logo">
 					<h1><a href="#">RDS</a></h1>
-
+					
 				</div>
-
+				
 				<!-- Nav -->
 				<nav id="nav">
 					<ul>
@@ -335,7 +329,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 						<li class="active"><a href="twocolumn1.php">Order</a></li>
 						<li><a href="twocolumn2.php">My Orders</a></li>
 						<li><a href="../index.php">Logout</a></li>
-
+						
 					</ul>
 				</nav>
 
@@ -362,33 +356,33 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 							<header>
 								<h2>Delicious Parathas</h2>
 							</header>
-							<p>Simply Amazing.</p>
+							<p>Simply Amazing.</p>				
 						</section>
 						<section>
 							<a href="#" class="image full"><img src="images/pics05.jpg" alt=""></a>
 							<header>
 								<h2>Refreshing Beverages</h2>
 							</header>
-							<p>Beat the Summer.</p>
+							<p>Beat the Summer.</p>				
 						</section>
-					</div>
-
+					</div>		
+					
 					<div class="9u">
 						<section>
 							<header>
 								<h2>Order</h2>
 								<h3><?php echo $msg; ?></h3>
 							</header>
-
-
+							
+							
 						</section>
 					</div>
 
-					 <div class="form-group">
-                     <form name="add_name" id="add_name" action="twocolumn1.php" method="post">
-                          <div class="table-responsive">
-                               <table class="table table-bordered" id="dynamic_field">
-                                    <tr  >
+					 <div class="form-group">  
+                     <form name="add_name" id="add_name" action="twocolumn1.php" method="post">  
+                          <div class="table-responsive">  
+                               <table class="table table-bordered" id="dynamic_field">  
+                                    <tr  > 
                                          <th bgcolor="#000000"><strong><font color="#fff">Item</font></strong></th>
                                          <th bgcolor="#000000"><strong><font color="#fff">Rate</font></strong></th>
                                          <th bgcolor="#000000"><strong><font color="#fff">Stock</font></strong></th>
@@ -396,49 +390,49 @@ tr:nth-child(even) {background-color: #f2f2f2;}
                                          <!-- <th bgcolor="#000000"><font color="#fff">Rate</font></th>
                                          <th bgcolor="#000000"><font color="#fff">Stock</font></th>
                                          <th bgcolor="#000000"><font color="#fff">Quantity</font></th> -->
-
-                                        <!--  <th  >Item</th>
-
+                                         
+                                        <!--  <th  >Item</th>  
+                                         
                                          <th>Price (per unit)</th>
                                          <th>Stock</th>
                                          <th>Quantity</th>  -->
-                                    </tr>
+                                    </tr>  
                                     <?php
-									$mysqli = OpenCon();
+									$mysqli = OpenCon(); 
 									$i=0;
-
-									$sql = "SELECT * FROM item";
-									if ($res = $mysqli->query($sql)) {
-									    if ($res->num_rows > 0) {
-
-									        while ($row = $res->fetch_array())
-									        {
+								  
+									$sql = "SELECT * FROM item"; 
+									if ($res = $mysqli->query($sql)) { 
+									    if ($res->num_rows > 0) { 
+									        
+									        while ($row = $res->fetch_array())  
+									        { 
 									            $i++;
-									            echo "<tr>";
-									            echo "<td>".$row['name']."</td>";
-
+									            echo "<tr>"; 
+									            echo "<td>".$row['name']."</td>"; 
+									            
 									            echo "<td>".$row['price']."</td>";
-									            echo "<td>".$row['stock']."</td>";
+									            echo "<td>".$row['stock']."</td>"; 
 									            echo "<td><input type=\"number\" name=\"qty".$i."\" value=\"0\" class=\"form-control name_list\" min=\"0\" max=\"".$row['stock']."\" /></td>";
-									            echo "</tr>";
-									        }
-									        $res->free();
-									    }
-									    else {
-									        echo "No matching records are found.";
-									    }
-									}
+									            echo "</tr>"; 
+									        } 
+									        $res->free(); 
+									    } 
+									    else { 
+									        echo "No matching records are found."; 
+									    } 
+									} 
 									$_SESSION['i']=$i;
-
+									
 
 									$mysqli->close();
-									?>
-                               </table>
+									?> 
+                               </table>  
                               <input type="submit" name="submit" id="submit" class="btn btn-info" value="Order" />
                               <!--  <input type="button"  value="Submit" />   -->
-                          </div>
-                     </form>
-                </div>
+                          </div>  
+                     </form>  
+                </div>   
 
 				</div>
 			</div>
@@ -471,13 +465,13 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 								<h2></h2>
 							</header>
 							<ul class="style1">
-
+								
 							</ul>
 						</section>
 					</div>
 					<div class="6u">
 						<section>
-
+							
 							<header>
 								<h2>Coming Soon...</h2>
 							</header>
@@ -495,7 +489,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 					<div class="8u">
 						<section>
 							<header>
-
+							
 								<h2>Core 2 Canteen</h2>
 							<a href="#" class="image full"><img src="images/map.png" alt=""></a>
 							</header>
@@ -513,7 +507,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 								<li><a href="http://www.iitg.ac.in">IITG Webpage</a></li>
 								<li><a href="https://intranet.iitg.ernet.in">IITG Webpage (Intranet)</a></li>
 								<li><a href="https://www.office.com">Outlook</a></li>
-
+								
 							</ul>
 						</section>
 					</div>
@@ -523,3 +517,4 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 	</body>
 </html>
+

@@ -1,31 +1,24 @@
 <?php
-    if(!isset($_SERVER['HTTP_REFERER'])){
-        header( 'HTTP/1.0 403 Forbidden', TRUE, 403 );
-        header('location:../../error/error.html');
-        exit;
-    }
-?>
-<?php
   include "../db_connection.php";
 	session_start();
 	//$_SESSION['link']="./invoice.php";
 
-?>
+?> 
 
 <?php
-
+									
 									//Fetching first name and last name
-									$mysqli = OpenCon();
-
+									$mysqli = OpenCon(); 
+									
 									$id=$_GET['link'];
-
-									$sql = "SELECT * FROM orders where id='".$id."'";
-									if ($res = $mysqli->query($sql)) {
-									    if ($res->num_rows > 0) {
-
-									        while ($row = $res->fetch_array())
-									        {
-
+								  
+									$sql = "SELECT * FROM orders where id='".$id."'"; 
+									if ($res = $mysqli->query($sql)) { 
+									    if ($res->num_rows > 0) { 
+									        
+									        while ($row = $res->fetch_array())  
+									        { 
+									           
 									            setcookie('firstname',$row['firstname']);
 									            setcookie('lastname',$row['lastname']);
 									            setcookie('id',$id);
@@ -33,21 +26,21 @@
 									            setcookie('total',$row['total']);
 
 
-
-
-
-									        }
-									        $res->free();
-									    }
-									    else {
-									        echo "Error";
-									    }
-									}
-
-
+									            
+									            
+									            
+									        } 
+									        $res->free(); 
+									    } 
+									    else { 
+									        echo "Error"; 
+									    } 
+									} 
+									
+									
 
 									$mysqli->close();
-									?>
+									?> 
 
 <html>
 	<head>
@@ -66,18 +59,18 @@
 	<body>
 		<header>
 			<h1>Invoice</h1>
-
+			
 				<p>Room Delivery Service</p>
 				<p>Ground floor, Core-2<br>IITG-781039</p>
 				<p>(0361) 258-0000</p>
-
+			
 			<span><img alt="" src="logo.png"></span>
 		</header>
 		<article>
 			<h1>Recipient</h1>
-
+			
 				<p><?php echo $_COOKIE['firstname'] ?><br><?php echo $_COOKIE['lastname'] ?></p>
-
+			
 			<table class="meta">
 				<tr>
 					<th><span contenteditable>Invoice #</span></th>
@@ -103,69 +96,69 @@
 				</thead>
 				<tbody>
 					<?php
-									$mysqli2 = OpenCon();
-
+									$mysqli2 = OpenCon(); 
+									
 									$id=$_COOKIE['id'];
-
-									$sql = "SELECT * FROM orders where id='".$id."'";
-									if ($res = $mysqli2->query($sql)) {
-									    if ($res->num_rows > 0) {
-
-									        while ($row = $res->fetch_array())
-									        {
-
+								  
+									$sql = "SELECT * FROM orders where id='".$id."'"; 
+									if ($res = $mysqli2->query($sql)) { 
+									    if ($res->num_rows > 0) { 
+									        
+									        while ($row = $res->fetch_array())  
+									        { 
+									           
 									            $items=unserialize($row['items']);
-
+									            
 
     											$q=unserialize($row['quantity']);
-
+									            
 
     											$price=unserialize($row['price']);
 
     											$temp;
-
+									            
 
 									            $round = count($price);
-									            for($n = 1; $n <= $round; $n++){
+									            for($n = 1; $n <= $round; $n++){ 
 									            	$temp=$price[$n]*$q[$n];
-
-    												echo "<tr>";
-									            echo "<td>".$items[$n]."</td>";
-									            echo "<td><span data-prefix>Rs.</span>".$price[$n]."</td>";
-									            echo "<td>".$q[$n]."</td>";
-									            echo "<td><span data-prefix>Rs.</span><span>".$temp."</span></td>";
-
-
-									            echo "</tr>";
+    												
+    												echo "<tr>"; 
+									            echo "<td>".$items[$n]."</td>"; 
+									            echo "<td><span data-prefix>Rs.</span>".$price[$n]."</td>"; 
+									            echo "<td>".$q[$n]."</td>"; 
+									            echo "<td><span data-prefix>Rs.</span><span>".$temp."</span></td>"; 
+									 
+									            
+									            echo "</tr>"; 
 
 
 
 
     											}
 
+    											
 
 
-
-
-									        }
-									        $res->free();
-									    }
-									    else {
-									        echo "No record found";
-									    }
-									}
-
-
+									            
+									        } 
+									        $res->free(); 
+									    } 
+									    else { 
+									        echo "No record found"; 
+									    } 
+									} 
+									
+									
 
 									$mysqli2->close();
-									?>
-
+									?> 
+					
 				</tbody>
 			</table>
 
 
 
-
+			
 			<table class="balance">
 				<tr>
 					<th><span >Total</span></th>
