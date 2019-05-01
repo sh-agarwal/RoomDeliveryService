@@ -1,5 +1,11 @@
 <!DOCTYPE HTML>
-
+<?php
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header( 'HTTP/1.0 403 Forbidden', TRUE, 403 );
+        header('location:../../error/error.html');
+        exit;
+    }
+?>
 <?php
   include "../db_connection.php";
 	session_start();

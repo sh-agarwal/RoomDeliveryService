@@ -1,6 +1,13 @@
 <!DOCTYPE HTML>
 <?php
-  
+    if(!isset($_SERVER['HTTP_REFERER'])){
+        header( 'HTTP/1.0 403 Forbidden', TRUE, 403 );
+        header('location:../../error/error.html');
+        exit;
+    }
+?>
+<?php
+
    session_start();
 ?>
 
@@ -41,7 +48,7 @@
 				<!-- Logo -->
 				<div id="logo">
 					<h1><a href="#">RDS</a></h1>
-					
+
 				</div>
 
 				<!-- Nav -->
@@ -52,12 +59,12 @@
 						<li><a href="twocolumn1.php">Order</a></li>
 						<li><a href="twocolumn2.php">My Orders</a></li>
 						<li><a href="../index.php">Logout</a></li>
-						
+
 					</ul>
-					
+
 
 				</nav>
-				
+
 
 			</div>
 
@@ -75,7 +82,7 @@
 							<header>
 								<h2>Exotic Tea</h2>
 							</header>
-							<p>Traditional Assamese tea.</p>				
+							<p>Traditional Assamese tea.</p>
 						</section>
 					</div>
 
@@ -85,7 +92,7 @@
 							<header>
 								<h2>Delicious Parathas</h2>
 							</header>
-							<p>Simply Amazing.</p>				
+							<p>Simply Amazing.</p>
 						</section>
 					</div>
 
@@ -95,7 +102,7 @@
 							<header>
 								<h2>Chilled Latte</h2>
 							</header>
-							<p>For the late night works.</p>				
+							<p>For the late night works.</p>
 						</section>
 					</div>
 
@@ -105,7 +112,7 @@
 							<header>
 								<h2>Refreshing Beverages</h2>
 							</header>
-							<p>Beat the Summer.</p>				
+							<p>Beat the Summer.</p>
 						</section>
 					</div>
 
@@ -139,13 +146,13 @@
 								<h2></h2>
 							</header>
 							<ul class="style1">
-								
+
 							</ul>
 						</section>
 					</div>
 					<div class="6u">
 						<section>
-							
+
 							<header>
 								<h2>Coming Soon...</h2>
 							</header>
@@ -163,7 +170,7 @@
 					<div class="8u">
 						<section>
 							<header>
-							
+
 								<h2>Core 2 Canteen</h2>
 							<a href="#" class="image full"><img src="images/map.png" alt=""></a>
 							</header>
@@ -181,7 +188,7 @@
 								<li><a href="http://www.iitg.ac.in">IITG Webpage</a></li>
 								<li><a href="https://intranet.iitg.ernet.in">IITG Webpage (Intranet)</a></li>
 								<li><a href="https://www.office.com">Outlook</a></li>
-								
+
 							</ul>
 						</section>
 					</div>
@@ -189,7 +196,7 @@
 			</div>
 		</div>
 
-		
+
 
 	</body>
 </html>
