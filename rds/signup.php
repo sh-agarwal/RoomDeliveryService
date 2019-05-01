@@ -9,6 +9,10 @@
 <title>RDS</title>
     <link rel="stylesheet" type="text/css" href="style_signup.css">
     <link rel="icon" type="image/png" href="./images/icons/favicon.ico"/>
+    <meta name="theme-color" content="#8B008B">
+<meta name="msapplication-navbutton-color" content="#000000">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <body>
     <div>
       <?php
