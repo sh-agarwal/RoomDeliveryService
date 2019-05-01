@@ -50,7 +50,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 				<!-- Logo -->
 				<div id="logo">
 					<h1><a href="#">RDS</a></h1>
-					
+
 				</div>
 
 				<!-- Nav -->
@@ -88,10 +88,15 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 					 <div class="form-group">
              <form role = "form"
                 action = "<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method = "post">
+
                 <button type = "submit" name = "daily" value = "daily" class="btn btn-info">Daily</button>
-                <button type = "submit" name = "monthly" value = "monthly" class="btn btn-info">Monthly</button>
-                <input type="date" name="start_date" placeholder="Start Date">
+                <label>&nbsp&nbsp</label>
+                <button type = "submit" name = "monthly" value = "monthly" class="btn btn-info">Monthly</button><br><br>
+                <label>From :  </label>
+                <input type="date" name="start_date" placeholder="Start Date"><br>
+                <label>&nbsp&nbsp&nbsp&nbsp To :  </label>
                 <input type="date" name="end_date" placeholder="End Date">
+                <label>&nbsp&nbsp</label>
                 <button type = "submit" name = "period" value = "period" class="btn btn-info">Choose Period</button>
                 <br><br><br>
               </form>
@@ -107,11 +112,11 @@ tr:nth-child(even) {background-color: #f2f2f2;}
                                     	<th bgcolor="#000000"><strong><font color="#fff">Price</font></strong></th>
                                     	<th bgcolor="#000000"><strong><font color="#fff">Total Price</font></strong></th>
                                     	<th bgcolor="#000000"><strong><font color="#fff">Profit</font></strong></th>
-                                    	
 
 
 
-<!-- 
+
+<!--
                                          <td>Date</td>
                                          <td>Time</td>
                                          <td>Items</td>
