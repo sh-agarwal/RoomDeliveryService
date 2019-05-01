@@ -1,6 +1,6 @@
 <HTML>
 <HEAD> <TITLE>RDS</TITLE> 
-	<link rel="icon" type="image/png" href="./rds/images/icons/favicon.ico"/>
+  <link rel="icon" type="image/png" href="./rds/images/icons/favicon.ico"/>
 <style>
 body, html {
   height: 100%;
@@ -9,15 +9,45 @@ body, html {
 
 .bg {
   /* The image used */
-  background-image: url("./rds/giphy10.gif");
+  background-image: url("./rds/giphy12.gif");
 
   /* Full height */
   height: 100%; 
 
-  /* Center and scale the image nicely */
+   Center and scale the image nicely 
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+.content {
+  /*position: fixed;*/
+  /*bottom: 0;*/
+  /*background: rgba(0, 0, 0, 0.5);*/
+  color: #f1f1f1;
+  /*width: 100%;*/
+  /*padding: 20px;*/
+  font-size: 50px;
+  font-family: sans-serif;
+  width: 200px;
+  height: 200px;
+  /*background-color: red;*/
+  
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+    
+  margin: auto;
 }
 </style>
 
@@ -29,8 +59,14 @@ body, html {
 
 </HEAD>
 <BODY >
-	<a href="./rds/index.php"><div class="bg"></div></a>
+  <a href="./rds/index.php"><video autoplay muted loop id="myVideo">
+  <source src="vid.mp4" type="video/mp4">
+</video>
+
+<div class="content">
+  <h1>RDS</h1>
+</div></a>
 <!-- <h1 class="titletext">RDS</h1> -->
- <!-- <a href="./index.php"> <IMG SRC="giphy5.gif" class="center" ></a>	 -->
+ <!-- <a href="./index.php"> <IMG SRC="giphy5.gif" class="center" ></a>  -->
 </BODY>
 </HTML>
