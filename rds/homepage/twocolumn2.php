@@ -115,7 +115,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
                                     	<th bgcolor="#000000"><strong><font color="#fff">Quantity</font></strong></th>
                                     	<th bgcolor="#000000"><strong><font color="#fff">Rate</font></strong></th>
                                     	<th bgcolor="#000000"><strong><font color="#fff">Total Price</font></strong></th>
-                                    	<th bgcolor="#000000"><strong><font color="#fff">Expected Delivery Time</font></strong></th>
+                                    	<th bgcolor="#000000"><strong><font color="#fff">Delivery Time (min.)</font></strong></th>
                                     	<th bgcolor="#000000"><strong><font color="#fff">Status</font></strong></th>
                                          <!-- <th bgcolor="#000000"><font color="#fff">Date</font></th>
                                          <th bgcolor="#000000"><font color="#fff">Time</font></th>
@@ -183,10 +183,10 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     											$b = $row['date']." ".$row['time'];
                           $d = $row['time'];
 
-                          $minutes_to_add = $row['preptime'] + 2;
-                          $time = new DateTime($b);
-                          $time->add(new DateInterval('PT' . $minutes_to_add . 'M'));
-                          $stamp = $time->format('Y-m-d H:i:s');
+                          // $minutes_to_add = $row['preptime'] + 2;
+                          // $time = new DateTime($b);
+                          // $time->add(new DateInterval('PT' . $minutes_to_add . 'M'));
+                          // $stamp = $time->format('Y-m-d H:i:s');
 
     											$c = $row['date']." 00:".$row['preptime'].":00";
     											$newtimestamp = strtotime($b." + ".$row['preptime']." minute");
@@ -207,7 +207,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 									            echo "<td><pre>".$q_f."</pre></td>";
 									            echo "<td><pre>".$price_f."</pre></td>";
 									            echo "<td>".$row['total']."</td>";
-									            echo "<td>".$stamp."</td>";
+									            echo "<td>".$row['preptime']."</td>";
 									            if($status=="Delivered")
 									            	echo "<td><font color=green>".$status."</font></td>";
 									            else
