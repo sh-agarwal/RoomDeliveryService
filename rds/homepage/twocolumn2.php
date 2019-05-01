@@ -106,7 +106,7 @@
                                          <td>Time</td> 
                                          <td>Items</td>
                                          <td>Quantity</td>
-                                         <td>Price</td>
+                                         <td>Rate</td>
                                          <td>Total Price</td>
                                          <td>Prep Time</td>
                                          <td>Status</td>
@@ -160,7 +160,7 @@
 
 
 									            echo "<tr>"; 
-									            echo "<strong><td><a href=".$_SESSION['link']."?link=".$row['id'].">".$row['id']."</a></td></strong>"; 
+									            echo "<strong><td><a href=".$_SESSION['link']."?link=".$row[''].">".$row['id']."</a></td></strong>"; 
 									            echo "<td>".$row['date']."</td>"; 
 									            echo "<td>".$row['time']."</td>"; 
 									            echo "<td><pre>".$items_f."</pre></td>"; 
@@ -168,7 +168,10 @@
 									            echo "<td><pre>".$price_f."</pre></td>";  
 									            echo "<td>".$row['total']."</td>"; 
 									            echo "<td>".$row['preptime']."</td>"; 
-									            echo "<td>".$status."</td>"; 
+									            if($status=="Delivered")
+									            	echo "<td><font color=green>".$status."</font></td>"; 
+									            else
+									            	echo "<td><font color=red>".$status."</font></td>"; 
 									            
 									            echo "</tr>"; 
 									        } 
