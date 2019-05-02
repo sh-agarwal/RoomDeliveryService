@@ -1,5 +1,12 @@
 <!DOCTYPE HTML>
 <?php
+if(!isset($_SERVER['HTTP_REFERER'])){
+    
+    header('location:../../error/error.html');
+    exit;
+}
+?>
+<?php
   
    session_start();
 ?>

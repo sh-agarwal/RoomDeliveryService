@@ -1,6 +1,13 @@
 <!DOCTYPE HTML>
 
 <?php
+if(!isset($_SERVER['HTTP_REFERER'])){
+
+    header('location:../../error/error.html');
+    exit;
+}
+?>
+<?php
   include "../db_connection.php";
 	session_start();
 	$_SESSION['link']="./invoice.php";
