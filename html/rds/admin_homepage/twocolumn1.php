@@ -213,7 +213,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 			</div>
 		</div>
 
-		<!-- <div id="marketing">
+		 <div id="marketing">
 			<div class="container">
 				<div class="row">
 					<div class="3u">
@@ -256,7 +256,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 					</div>
 				</div>
 			</div>
-		</div> -->
+		</div>
 
 		<div id="main">
 			<div class="container">
